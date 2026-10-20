@@ -54,9 +54,6 @@ public class PlayerController : MonoBehaviour
         UpdateColor();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        GameObject Color = 
-    }
+    private void
 
 }
