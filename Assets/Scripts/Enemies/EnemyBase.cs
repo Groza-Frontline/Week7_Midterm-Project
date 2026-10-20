@@ -48,15 +48,15 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
     {
         switch (enemyColor)
         {
-            case ColorState.Red;
+            case ColorState.Red:
                 rend.material.color = Color.red;
                 break;
 
-            case ColorState.Blue;
+            case ColorState.Blue:
                 rend.material.color = Color.blue;
                 break;
 
-            case ColorState.Green;
+            case ColorState.Green:
                 rend.material.color = Color.green;
                 break;
         }
