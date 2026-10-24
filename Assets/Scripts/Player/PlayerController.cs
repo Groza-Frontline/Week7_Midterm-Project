@@ -1,15 +1,24 @@
 using UnityEngine;
 
+// Class that controls the player behavior, including shooting bullets and switching color states
 public class PlayerController : MonoBehaviour, ISwitchable
 {
+    // Current color state of the player
     public ColorState currentState;
 
+    // Bullet prefab to instantiate when shooting
     public GameObject bulletPrefab;
+
+    // Interval between shots in seconds
     public float shootInterval = 1f;
 
+    // Range within which the player can detect enemies
     public float detectionRange = 10f;
+
+    // Speed at which the player rotates to face the nearest enemy
     public float rotateSpeed = 5f;
 
+    // Timer to track time since the last shot
     private float timer;
 
     private Renderer rend;
@@ -22,6 +31,7 @@ public class PlayerController : MonoBehaviour, ISwitchable
 
     void Update()
     {
+        // Call the detected and rotate method to find the nearest enemy and rotate towards it
         DetectAndRotate();
 
         timer += Time.deltaTime;
@@ -33,6 +43,7 @@ public class PlayerController : MonoBehaviour, ISwitchable
         }
     }
 
+    // Method to instantiate a bullet and set its color based on the player's current state
     void Shoot()
     {
         GameObject bulletObj = Instantiate(bulletPrefab, transform.position, transform.rotation);
@@ -42,6 +53,7 @@ public class PlayerController : MonoBehaviour, ISwitchable
         bullet.SetColor(currentState);
     }
 
+    // Method to switch the player's color state in a cyclic manner (Red -> Blue -> Green -> Red)
     public void SwitchState()
     {
         currentState++;
@@ -54,6 +66,7 @@ public class PlayerController : MonoBehaviour, ISwitchable
         UpdateColor();
     }
 
+    // Method to handle mouse click events and switch the player's color state
     private void OnMouseDown()
     {
         SwitchState();
