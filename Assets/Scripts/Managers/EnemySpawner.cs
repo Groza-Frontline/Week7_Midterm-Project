@@ -3,8 +3,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject redEnemy;
-    public GameObject greenEnemy;
     public GameObject blueEnemy;
+    public GameObject greenEnemy;
 
     public float spawnInterval = 2f;
 
@@ -26,11 +26,11 @@ public class EnemySpawner : MonoBehaviour
                 break;
 
             case 1:
-                Instantiate(redEnemy, spawnPos, Quaternion.identity);
+                Instantiate(blueEnemy, spawnPos, Quaternion.identity);
                 break;
 
             case 2:
-                Instantiate(redEnemy, spawnPos, Quaternion.identity);
+                Instantiate(greenEnemy, spawnPos, Quaternion.identity);
                 break;
         }
     }
